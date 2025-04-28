@@ -1,0 +1,27 @@
+.createMain{
+    display: flex;
+    column-gap: 40dvw;
+    padding: 1rem 0px;
+}
+
+.createForm{
+    width: 40dvw;
+}
+
+#createHead{
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    font-size: 5rem;
+    color: #dc3545;
+    opacity: 0.2;
+}
+
+.category-selected-btn{
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 1rem;
+    background-color: transparent;
+    margin:0.5rem 0.5rem 0.5rem 0px;
+    padding: 0.1rem 0.3rem;
+}

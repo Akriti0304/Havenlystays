@@ -1,0 +1,59 @@
+#all-listings-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 2rem 2.5rem;
+}
+
+.cardAnch{
+    flex: 1 1 300px;
+    max-width: 300px;
+    min-width: 100px;
+    text-decoration: none;
+}
+
+.card{
+    border: none !important;
+}
+
+.card-img-top{
+    height: 43vh;
+    border-radius: 1rem;
+}
+
+.card-img-overlay{
+    opacity:0;
+}
+
+.card-img-overlay:hover{
+    background-color: white;
+    opacity: 0.2;
+}
+
+.createCardBody{
+    text-align: start;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+}
+
+
+@media (max-width: 713px){
+
+    .card-img-top{
+        height: 180px;
+    }
+
+    .cardAnch{
+        flex: 1 1 150px;
+        max-width: 150px;
+    }
+
+    .list-title{
+        font-size:medium;
+    }
+
+    .card-text{
+        font-size: small;
+    }
+}

@@ -1,0 +1,76 @@
+<div class="sticky-top">
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+    <div class="container-fluid">
+
+      <div class="d-flex appBranding">
+        <a class="navbar-brand" href="/listings"><i id="icon" class="fa-solid fa-compass-drafting"></i></a>
+        <a id="appTitle" class="navbar-brand" href="/listings">Havenlystays</a>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse gap-2" id="navbarSupportedContent">
+
+        <% if (isListingPage) { %>
+          <form action="/listings/search" method="post" class="navbar-brand d-flex ms-auto" role="search">
+            <input class="form-control me-2" id="search-input" type="search" placeholder="Search destinations"
+              aria-label="Search" name="title">
+            <button class="btn btn-outline-success" id="search-btn" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              Search
+            </button>
+          </form>
+          <%}%>
+
+            <div class="navbar-nav ms-auto">
+              <button id="createListingBtn">
+                <a class="nav-link" href="/listings/create" href="#">Create Listing</a>
+              </button>
+              <%if(currUser){%>
+                <a id="logoutAnch" class="nav-link" href="/logout" href="#">Logout</a>
+                <button id="userInfoBtn" class="nav-link">
+                  <i class="fa-solid fa-user"></i>
+                  &nbsp;<%=currUser.username%>
+                </button>
+                <%}%>
+                  <%if(!currUser){%>
+                    <a id="loginAnch" class="nav-link" aria-current="page" href="/login">Login</a>
+                    <a id="SignupAnch" class="nav-link" href="/register">Signup</a>
+                    <%}%>
+            </div>
+      </div>
+    </div>
+  </nav>
+
+  <% if (isListingPage) { %>
+    <nav id="filter-Nav" class="navbar sticky-top">
+
+
+        <div class="filter-container d-flex flex-row">
+          <%for(let data of filtersData){%>
+
+            <form class="filterAnch" action="/listings/filter-search?category=<%=encodeURIComponent(data.filterName)%>"
+              method="POST">
+              <button type="submit" id="filterBtn">
+                <i class="<%= data.icon %>"></i>
+                <p id="filter-text">
+                  <%= data.filterName %>
+                </p>
+              </button>
+            </form>
+
+            <%}%>
+        </div>
+      <!-- </div> -->
+
+      <div class="form-check form-switch d-flex flex-row gap-2">
+        <input onchange="handleToggleGstSwitch(event)" style="height: 1.3rem; width: 2.2rem;" class="form-check-input"
+          type="checkbox" role="switch" id="switchCheckChecked">
+        <label class="label switchCheckChecked-label" for="switchCheckChecked">Display Total After Taxes</label>
+      </div>
+    </nav>
+    <%}%>
+</div>

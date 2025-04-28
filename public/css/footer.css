@@ -1,0 +1,23 @@
+footer{
+    display: grid;
+    justify-items: center;
+    height: 13vh;
+    padding:0.9rem 0rem;
+    background-color: rgb(248, 249, 250);
+    border-top:1px solid rgb(233, 210, 210);
+    align-self:self-end;
+}
+
+.anch1,.anch2{
+    text-decoration: none;
+    color:black;
+}
+
+#social,#links{
+    display: flex;
+    column-gap: 1rem;
+}
+
+.fa-square-facebook,.fa-square-twitter,.fa-square-instagram{
+    font-size: 1.4rem;
+}

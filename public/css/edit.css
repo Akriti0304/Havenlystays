@@ -1,0 +1,28 @@
+.editMain{
+    display: flex;
+    column-gap: 40dvw;
+    padding: 1rem 0px;
+}
+
+.editForm{
+    width: 40dvw;
+}
+
+#editHead{
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    font-size: 5rem;
+    color: #dc3545;
+    opacity: 0.2;
+}
+
+#editImagesContainer{
+    display: flex;
+    column-gap: 1rem;
+}
+
+.uploadedImage{
+    height: 90px;
+    width: 150px;
+}

@@ -1,0 +1,142 @@
+<%layout("/layout/boilerplate")%>
+
+        <div class="showCard">
+            <h2 id="cardTitle">
+                <%=list.title%>
+            </h2>
+            <div class="card-img">
+                <img id="showImg" src="<%=list.image[0].url%>" alt="img">
+                <div id="grid-img">
+                    <img class="grid-imgs" id="grid-img-1" src="<%=list.image[1].url%>" alt="img">
+                    <img class="grid-imgs" id="grid-img-2" src="<%=list.image[2].url%>" alt="img">
+                    <img class="grid-imgs" id="grid-img-3" src="<%=list.image[3].url%>" alt="img">
+                    <img class="grid-imgs" id="grid-img-4" src="<%=list.image[4].url%>" alt="img">
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="about-List">
+                    <p id="location-text">
+                        <i id="showIconLoc" class="fa-solid fa-location-dot"></i>
+                        <%=list.location%>, <%=list.country%> -
+                                <span id="reviewLengthText"><%-list.reviews.length%> reviews</span>
+                    </p>
+                    <p id="description-text">
+                        <%=list.description%>
+                    </p>
+                    <div id="ownerDiv">
+                        <i id="listOwnerIcon" class="fa-solid fa-user"></i>
+                        <p id="hostText">Owned by <i>
+                                <%=list.owner.username%>
+                            </i></p>
+                    </div>
+                </div>
+
+                <div id="right-Div">
+                    <div id="price-showCard">
+                        <h2>&#x20B9;<%=list.price.toLocaleString("en-IN")%>/per night</h2>
+                        <p class="category-text">Categories :- <%=list.category%>
+                        </p>
+                    </div>
+                    <div class="cardBtns">
+                        <%if(currUser && list.owner.equals(currUser)){%>
+                            <form class="showForm" method="GET"
+                                action="/listings/<%=list.id%>/edit">
+                                <button class="btn btn-danger showBtn edit-btn">Edit</button>
+                            </form>
+                            <form class="showForm" method="POST"
+                                action="/listings/<%=list.id%>?_method=DELETE">
+                                <button class="btn btn-danger showBtn delete-btn">Delete</button>
+                            </form>
+                            <%}%>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <%if(currUser)%>
+            <div id="review">
+                <% if(currUser){ %>
+
+                    <form method="POST" action="/listings/<%=list.id%>/review" novalidate
+                        class="form needs-validation review-form">
+                        <textarea type="text" class="form-control review-enter-text" rows="2" name="comment"
+                            placeholder="Enter comments here" required></textarea>
+                        <div class="invalid-feedback">Please enter review</div>
+
+                        <div class="star-btn-review">
+
+                            <div class="rating">
+                                <div class="mt-2">
+                                    <input onclick="handleStarInput(this)" style="display: none;" type="radio"
+                                        id="star1" name="rating" value="1">
+                                    <label for="star1"><i class="fa-solid fa-star pointer-link" id="star1Font"
+                                            style="color: gainsboro;"></i></label>
+                                    <input onclick="handleStarInput(this)" style="display: none;" type="radio"
+                                        id="star2" name="rating" value="2">
+                                    <label for="star2"><i class="fa-solid fa-star pointer-link" id="star2Font"
+                                            style="color: gainsboro;"></i></label>
+                                    <input onclick="handleStarInput(this)" style="display: none;" type="radio"
+                                        id="star3" name="rating" value="3">
+                                    <label for="star3"><i class="fa-solid fa-star pointer-link" id="star3Font"
+                                            style="color: gainsboro;"></i></label>
+                                    <input onclick="handleStarInput(this)" style="display: none;" type="radio"
+                                        id="star4" name="rating" value="4">
+                                    <label for="star4"><i class="fa-solid fa-star pointer-link" id="star4Font"
+                                            style="color: gainsboro;"></i></label>
+                                    <input onclick="handleStarInput(this)" style="display: none;" type="radio"
+                                        id="star5" name="rating" value="5">
+                                    <label for="star5"><i class="fa-solid fa-star pointer-link" id="star5Font"
+                                            style="color: gainsboro;"></i></label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger review-submit-btn">Submit</button>
+
+                        </div>
+
+                    </form>
+                    <%}%>
+                        <%if(list.reviews.length){%>
+                            <div id="all-reviews">
+
+                                <div id="reviewHeading">
+                                    <h5>Reviews <span id="reviewCountHeading"><%-list.reviews.length%></span></h2>
+                                </div>
+                                <div class="all-reviews-show">
+                                    <%for(let review of list.reviews){%>
+                                        <div class="review-card">
+                                            <div class="card-title">
+                                                <div class="user-review-box">
+                                                    <i class="fa-solid fa-circle-user review-owner-icon"></i>
+                                                    <%=review.owner.username%>
+                                                    <span class="dash"> - </span>
+                                                    <span class="timeago" datetime="<%= review.createdAt %>"></span>
+                                                </div>
+                                                <%if(currUser && (list.owner.equals(currUser) ||
+                                                    review.owner.equals(currUser.id))){%>
+                                                    <form method="post"
+                                                        action="/listings/<%=list.id%>/review/<%=review.id%>?_method=DELETE">
+                                                        <button class="review-dlt-btn"><i class="fa-solid fa-trash"></i></button>
+                                                    </form>
+                                                    <%}%>
+
+                                            </div>
+                                            <div class="review-content" >
+                                                <%=review.comment%>
+                                                    <br>
+                                                   <div>
+                                                    <%for (i=1; i<=review.rating;i++){%>
+                                                        <i class="fa-solid fa-star" style="color: #ff9705"></i>
+                                                    <%}%>
+                                                    <%for (i=1; i<=5-review.rating;i++){%>
+                                                        <i class="fa-solid fa-star"
+                                                            style="color: gainsboro"></i>
+                                                        <%}%>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <%}%>
+                                </div>
+
+                            </div>
+                            <%}%>
+            </div>

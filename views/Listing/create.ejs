@@ -1,0 +1,80 @@
+<%layout("./layout/boilerplate")%>
+
+        <div class="col-lg-12 createMain">
+            <div class="createHeadContainer">
+                <h2 id="createHead" > 
+                    <i class="fa-solid fa-plus"></i>Create
+                </h2>
+            </div>
+            <form class="createForm" action="/listings"  enctype="multipart/form-data"
+            class="form needs-validation" method="POST" novalidate>
+                <div class="row">
+                    <label class="form-label" for="title">Title :</label>
+                    <input class="form-control" id="title" type="text" placeholder="Title" name="title" required>
+                    <div class="invalid-feedback">Please enter title</div>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="form-label" for="description">Description :</label>
+                    <textarea class="form-control" id="description" name="description"
+                        placeholder="Enter description" required></textarea>
+                    <div class="invalid-feedback">Please enter description more than 10 words</div>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="form-label" for="image">Upload Image  :</label>
+                    <input class="form-control" onchange="uploadImage(event)" multiple id="imageUpload" accept="image/png, image/jpeg, image/jpg"
+                     type="file" name="image" id="image" placeholder="Image" required>
+                    <div class="invalid-feedback">Please upload the image</div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label" for="price">Price :</label>
+                        <input class="form-control" id="price" min="1"  type="number" name="price" placeholder="Price" required>
+                        <div class="invalid-feedback">Please enter valid price</div>
+                    </div>
+                    <br>
+                    <div class="col">
+                        <label class="form-label" for="country">Country :</label>
+                        <input class="form-control" id="country" type="text" name="country"
+                            placeholder="Enter country name" required>
+                        <div class="invalid-feedback">Please enter your country</div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="form-label" for="location">Location :</label>
+                    <input class="form-control" id="location" type="text" name="location"
+                        placeholder="Enter you Loacation" required>
+                    <div class="invalid-feedback">Please enter your location</div>
+                </div>
+                <br>
+                <div class="row">
+                    <label for="categorySelect">Choose Categories:</label>
+                    <div id="selectedCategory">
+
+                    </div>
+                    <input id="hidden-category-input" type="hidden" name="category" value="[]">
+                    <select required onchange="handleCategorySelect(event)" id="categorySelect" name="categoryInput" class="form-select">
+                        <option value="">Select Categories</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Amazing Views">Amazing Views</option>
+                        <option value="Castles">Castles</option>
+                        <option value="Amazing pools">Amazing pools</option>
+                        <option value="Beach">Beach</option>
+                        <option value="Homes">Homes</option>
+                        <option value="Domes">Domes</option>
+                        <option value="New">New</option>
+                        <option value="Boats">Boats</option>
+                        <option value="Surfing">Surfing</option>
+                        <option value="Camper vans">Camper vans</option>
+                    </select>
+
+                </div>
+                <br>
+                <div class="createBtn">
+                    <button id="createBtn" class="btn btn-danger">Create</button>
+                </div>
+            </form>
+        </div>

@@ -1,0 +1,4 @@
+#mainContainer{
+    display: grid;
+    grid-template-rows: 1fr minmax(58vh, auto) 14vh ;
+}

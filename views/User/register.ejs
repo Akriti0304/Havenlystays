@@ -1,0 +1,25 @@
+<%layout("/layout/authBoilerplate")%>
+<body>
+    <div id="authCard">
+        <h1 class="auth-heading" style="text-align: center;" >Sign Up</h1>
+        <form method="post" action="/register" id="auth-form">
+            <div class="mb-3">
+              <label for="exampleInputUsername1" class="form-label">Username</label>
+              <input type="text" required class="form-control" name="username" id="exampleInputUsername1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" required class="form-control" name="email" id="exampleInputEmail1">
+              </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" required class="form-control" name="password" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">SignUp</button>
+          </form>
+          <div style="display: flex; flex-direction: column; justify-items: center;">
+            <a href="/login"
+                style="text-decoration-line: none; text-align: center;">Login?</a>
+        </div>
+    </div>
+</body>

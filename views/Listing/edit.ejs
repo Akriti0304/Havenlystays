@@ -1,0 +1,89 @@
+<%layout("/layout/boilerplate")%>
+    <div class="col-lg-12 editMain">
+        <div class="editHeadContainer">
+            <h1 id="editHead">
+                <i class="fa-solid fa-file-pen "></i>Edit
+        </h1>
+        </div>
+        <form action="/listings/<%=list.id%>?_method=PATCH" 
+            novalidate class="form needs-validation editForm" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <label class="form-label" for="title">Title :</label>
+                <input class="form-control" id="title" type="text" value="<%=list.title%>"
+                 name="title" required>
+                <div class="invalid-feedback">Please enter title</div>
+            </div>
+            <br>
+            <div class="row">
+                <label for="categorySelect">Choose Categories:</label>
+                <div id="selectedCategory">
+                    <% for(let eachCategory of list.category){%>
+                        <span class="category-selected-btn">
+                            <%=eachCategory%>
+                        </span>
+                    <%}%>
+                </div>
+                <input id="hidden-category-input" type="hidden" name="category" value='<%-JSON.stringify(list.category)%>'>
+                <select onchange="handleCategorySelect(event)" id="categorySelect" name="categoryInput" class="form-select">
+                    <option value="">Select Categories</option>
+                    <option value="Mountains">Mountains</option>
+                    <option value="Amazing Views">Amazing Views</option>
+                    <option value="Castles">Castles</option>
+                    <option value="Amazing pools">Amazing pools</option>
+                    <option value="Beach">Beach</option>
+                    <option value="Homes">Homes</option>
+                    <option value="Domes">Domes</option>
+                    <option value="New">New</option>
+                    <option value="Boats">Boats</option>
+                    <option value="Surfing">Surfing</option>
+                    <option value="Camper vans">Camper vans</option>
+                </select>
+
+            </div>
+            <br>
+            <div class="row">
+                <label class="form-label" for="description">Description :</label>
+                <textarea class="form-control" minlength="10" id="description" name="description" required><%=list.description%></textarea>
+                <div class="invalid-feedback">Please enter description more than 10 words</div>
+            </div>
+            <br>
+            <div class="row">
+                <label class="form-label" for="image">Upload Image  :</label>
+                <input class="form-control" onchange="editUploadImage(event)" accept="image/png, image/jpeg, image/jpg"
+                 type="file" name="image" id="imageUpload" placeholder="Image" multiple>
+            </div>
+            <br>
+            <div class="row">
+                <p class="form-label">Uploaded Image  :</p>
+                <div id="editImagesContainer">
+                <%for(let uploadedImageUrl of uploadedImagesUrls){%>
+                    <img class="uploadedImage" src="<%=uploadedImageUrl%>" alt="img">
+                <%}%>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" for="price">Price</label>
+                    <input class="form-control" min="1" value="<%=list.price%>" id="price" type="number" name="price" required>
+                    <div class="invalid-feedback">Please enter valid price</div>
+                </div>
+                <br>
+                <div class="col">
+                    <label class="form-label" for="country">Country</label>
+                    <input class="form-control" value="<%=list.country%>" id="country" type="text" name="country" required>
+                    <div class="invalid-feedback">Please enter your country</div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control"  id="location" value="<%=list.location%>" type="text" name="location" required>
+                <div class="invalid-feedback">Please enter your location</div>
+            </div>
+            <br>
+            <div class="editBtn">
+                <button id="editBtn" class="btn btn-danger">Edit</button>
+            </div>
+        </form>
+    </div>
