@@ -1,20 +1,20 @@
-.showCard{
+.showCard {
     width: 90vw;
     margin: 1rem auto;
 }
 
-#cardTitle{
+#cardTitle {
     margin-left: 2px;
     margin-bottom: 1.2rem;
 }
 
-.card-img{
+.card-img {
     width: 90vw;
     display: flex;
     gap: 1vh;
 }
 
-#showImg{
+#showImg {
     width: 55%;
     height: 55vh;
     object-fit: cover;
@@ -22,30 +22,30 @@
     border-bottom-left-radius: 1rem;
 }
 
-#grid-img{
-    display:grid;
+#grid-img {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap:1vh;
-    height:55vh;
-    width:45%;
+    gap: 1vh;
+    height: 55vh;
+    width: 45%;
 }
 
 .grid-imgs {
     height: 27vh;
     width: 100%;
-    object-fit:cover;
+    object-fit: cover;
 }
 
-#grid-img-2{
+#grid-img-2 {
     border-top-right-radius: 1rem;
 }
 
-#grid-img-4{
+#grid-img-4 {
     border-bottom-right-radius: 1rem;
-}
+}  
 
-#location-text{
+#location-text {
     margin-top: 2rem;
     font-size: 25px;
     justify-content: center;
@@ -53,31 +53,33 @@
     margin-bottom: 0px;
 }
 
-#showIconLoc{
+#showIconLoc {
     color: #dc3545;
 }
 
-#reviewLengthText{
+#reviewLengthText {
     text-decoration: underline;
     font-weight: 500;
 }
 
-#description-text{
+#description-text {
+    max-height: 3rem;
     font-size: 17px;
     margin-bottom: 1rem;
+    overflow-y: auto;
 }
 
-.card-body{
+.card-body {
     /* margin-top: 2rem; */
     display: flex;
     justify-content: space-between;
 }
 
-.about-List{
+.about-List {
     width: 60%;
 }
 
-#right-Div{
+#right-Div {
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -85,7 +87,7 @@
     gap: 15px;
 }
 
-#price-showCard{
+#price-showCard {
     margin-top: 2rem;
     height: auto;
     padding: 1rem;
@@ -93,33 +95,34 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.category-text{
+.category-text {
     margin-bottom: 0px;
 }
 
-.cardBtns{
-    width:100%;
+.cardBtns {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     gap: 10%;
 }
 
-.showForm{
+.showForm {
     width: 100%;
 }
 
-.delete-btn, .edit-btn{
+.delete-btn,
+.edit-btn {
     width: 100%;
     border-radius: 1rem;
     font-size: 18px;
 }
 
-#ownerDiv{
+#ownerDiv {
     display: flex;
     gap: 10px;
 }
 
-#listOwnerIcon{
+#listOwnerIcon {
     background-color: black;
     height: 1.8rem;
     width: 1.8rem;
@@ -129,18 +132,18 @@
     border-radius: 50%;
 }
 
-#hostText{
+#hostText {
     font-size: 1.1rem;
     justify-content: center;
     margin-bottom: 0;
 }
 
-.horizontal{
+.horizontal {
     width: 90%;
     margin: 4rem auto;
 }
 
-.review-form{
+.review-form {
     width: 90vw;
     margin: auto;
     margin-top: 3rem;
@@ -150,49 +153,49 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.review-submit-btn{
+.review-submit-btn {
     border: 2px solid #dc3545;
     background-color: white;
-    color:#dc3545;
+    color: #dc3545;
 }
 
-.review-submit-btn:hover{
+.review-submit-btn:hover {
     border: 2px solid #dc3545;
-    color:white;
+    color: white;
     background-color: #dc3545;
 }
 
-.star-btn-review{
+.star-btn-review {
     display: flex;
     justify-content: space-between;
     align-items: end;
 }
 
-.review-enter-text{
+.review-enter-text {
     border: none;
     outline: none !important;
     box-shadow: none !important;
     padding: 0px;
 }
 
-.pointer-link{
+.pointer-link {
     font-size: 1.2rem;
 }
 
-#all-reviews{
+#all-reviews {
     margin: auto;
     margin-top: 3rem;
     width: 90dvw;
 }
 
-#reviewCountHeading{
+#reviewCountHeading {
     background-color: #dc3545;
     color: white;
     padding: 0.2rem 0.5rem;
     border-radius: 0.7rem;
 }
 
-.all-reviews-show{
+.all-reviews-show {
     max-height: 40dvh;
     min-height: auto;
     overflow-y: scroll;
@@ -203,33 +206,98 @@
     padding: 0px 1rem;
 }
 
-.card-title{
+.card-title {
     display: flex;
     justify-content: space-between;
 }
 
-.timeago, .dash{
+.timeago,
+.dash {
     font-size: 0.9rem;
     color: gray;
 }
 
-.user-review-box{
+.user-review-box {
     font-size: 1.1rem;
 }
 
-.review-owner-icon{
+.review-owner-icon {
     font-size: 1.3rem;
 }
 
-.review-dlt-btn{
+.review-dlt-btn {
     border: none;
     background-color: transparent;
 }
 
-.review-content{
+.review-content {
     padding-left: 0.3rem;
     margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
     row-gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+
+    #description-text,
+    .category-text {
+        font-size: 10px;
+    }
+
+    .price-text-showCard {
+        font-size: 1rem;
+    }
+
+    .delete-btn,
+    .edit-btn {
+        width: 100%;
+        border-radius: 1rem;
+        font-size: 13px;
+    }
+
+    .card-img {
+        width: 90vw;
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    #showImg {
+        width: 55%;
+        height: 280px;
+        object-fit: cover;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+    
+    #grid-img {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0.5rem;
+        height: 280px;
+        width: 45%;
+    }
+    
+    .grid-imgs {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    #grid-img-2 {
+        border-top-right-radius: 1rem;
+    }
+    
+    #grid-img-4 {
+        border-bottom-right-radius: 1rem;
+    } 
+
+    #hostText {
+        font-size: 1rem;
+    }
+
+    #location-text {
+        font-size: 20px;
+    }
 }

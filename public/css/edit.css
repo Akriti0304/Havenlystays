@@ -17,12 +17,24 @@
     opacity: 0.2;
 }
 
-#editImagesContainer{
-    display: flex;
-    column-gap: 1rem;
-}
-
 .uploadedImage{
     height: 90px;
     width: 150px;
+}
+
+@media (max-width: 768px) {
+    .editMain{
+        column-gap: 0px;
+        padding: 10px;
+    }
+    
+    .editForm{
+        width: 100dvw;
+    }
+
+    .uploadedImage{
+        height: 50px;
+        width: 90px;
+        margin-bottom: 10px;
+    }
 }

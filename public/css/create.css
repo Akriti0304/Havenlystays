@@ -30,9 +30,6 @@
     .createMain{
         column-gap: 0;
         padding: 10px;
-    }
-
-    .createForm{
-        width: 100dvw;
+        width: 100%;
     }
 }

@@ -22,13 +22,9 @@
     border-radius: 1rem;
 }
 
-.card-img-overlay{
-    opacity:0;
-}
-
-.card-img-overlay:hover{
+.cardAnch:hover{
     background-color: white;
-    opacity: 0.2;
+    opacity: 0.8;
 }
 
 .createCardBody{
@@ -39,6 +35,9 @@
 
 
 @media (max-width: 713px){
+    #all-listings-container {
+        padding: 1rem;
+    }
 
     .card-img-top{
         height: 180px;
