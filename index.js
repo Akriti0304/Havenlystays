@@ -80,11 +80,6 @@ app.use(((req,res,next)=>{
     if(req.path=="/listings" || req.path=="/listings/"){
         res.locals.isListingPage = true;
     }
-    else if(req.path == "/"){
-        res.locals.isListingPage = true;
-        res.redirect("/listings");
-        next();
-    }
     else{res.locals.isListingPage = false}
     next();
 }));
@@ -97,12 +92,17 @@ app.use((req,res,next)=>{
     next();
 })
 
+
 app.use(userRouter);
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/review",reviewsRouter);
 
 app.all("*",(req,res)=>{
     throw new customError("Page not found",404);
+});
+
+app.get("/", (req, res) => {
+    res.redirect("/listings");
 });
 
 app.use((err,req,res,next)=>{
