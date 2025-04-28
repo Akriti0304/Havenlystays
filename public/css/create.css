@@ -32,4 +32,8 @@
         padding: 10px;
         width: 100%;
     }
+
+    .createForm{
+        width: 100%;
+    }
 }

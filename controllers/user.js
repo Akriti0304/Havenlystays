@@ -5,10 +5,11 @@ module.exports.renderSignUpForm = async(req,res)=>{
 }
 
 module.exports.signUpUser = async(req,res)=>{
-    const {username, email, password} = req.body;
+    const {username, email, password, phone} = req.body;
     let userObj = new User({
         username,
-        email
+        email,
+        phone
     });
     let newUser = await User.register(userObj,password);
     req.login(newUser,(err) => {

@@ -6,6 +6,12 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true,
         unique : true
+    },
+    phone:{
+        type : Number,
+        required : true,
+        min : 1000000001,
+        max : 9999999999
     }
 },{
     timestamps: true

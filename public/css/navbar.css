@@ -3,6 +3,10 @@
     font-size: 2rem;
 }
 
+.appBranding{
+    align-self:flex-end;
+}
+
 #userInfoBtn {
     border: 1px solid rgb(238, 237, 237);
     background-color: rgb(238, 237, 237);
@@ -50,6 +54,7 @@
 }
 
 .navbar-collapse{
+    justify-content: center;
     background-color: rgb(248, 249, 250);
     z-index:50000;
     margin-top:1rem;
