@@ -25,3 +25,14 @@
     margin:0.5rem 0.5rem 0.5rem 0px;
     padding: 0.1rem 0.3rem;
 }
+
+@media (max-width: 768px) {
+    .createMain{
+        column-gap: 0;
+        padding: 10px;
+    }
+
+    .createForm{
+        width: 100dvw;
+    }
+}

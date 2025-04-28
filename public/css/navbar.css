@@ -62,6 +62,7 @@
 #filter-Nav {
     background-color: white;
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     padding: 1rem;
 }
@@ -90,15 +91,18 @@
     background-color: rgba(0, 0, 0, 0.3);
   }
 
-#filterBtn {
+.filterBtn {
     background-color: transparent;
     color: rgb(127, 127, 127);
     border: none;
-    width: min-content;
 }
 
 #filterBtn:hover {
     color: rgb(0, 0, 0);
+}
+
+.filter-icon{
+    font-size: 1.4rem;
 }
 
 #filter-text{

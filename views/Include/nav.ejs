@@ -46,7 +46,7 @@
   </nav>
 
   <% if (isListingPage) { %>
-    <nav id="filter-Nav" class="navbar sticky-top">
+    <nav id="filter-Nav" class="sticky-top">
 
 
         <div class="filter-container d-flex flex-row">
@@ -54,8 +54,8 @@
 
             <form class="filterAnch" action="/listings/filter-search?category=<%=encodeURIComponent(data.filterName)%>"
               method="POST">
-              <button type="submit" id="filterBtn">
-                <i class="<%= data.icon %>"></i>
+              <button type="submit" class="filterBtn">
+                <i class="<%= data.icon %> filter-icon"></i>
                 <p id="filter-text">
                   <%= data.filterName %>
                 </p>

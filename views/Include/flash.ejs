@@ -1,12 +1,12 @@
 <% if (success && success.length > 0) { %>
-    <div class="alert flashAlert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert mt-4 flashAlert alert-success alert-dismissible fade show" role="alert">
       <%= success[0] %>
       <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
   <% } %>
   
   <% if (error && error.length > 0) { %>
-    <div class="alert flashAlert alert-danger alert-dismissible fade show" style="width: 100%;" role="alert">
+    <div class="alert mt-4 flashAlert alert-danger alert-dismissible fade show" style="width: 100%;" role="alert">
       <%= error[0] %>
       <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>

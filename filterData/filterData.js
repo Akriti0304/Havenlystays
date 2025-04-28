@@ -13,7 +13,7 @@ data = [
     },
     {
         "icon" : "fa-solid fa-person-swimming",
-        "filterName" : "Amazing pools"
+        "filterName" : "Pools"
     },
     {
         "icon" : "fa-solid fa-umbrella-beach",

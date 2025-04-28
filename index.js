@@ -97,12 +97,12 @@ app.use(userRouter);
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/review",reviewsRouter);
 
-app.all("*",(req,res)=>{
-    throw new customError("Page not found",404);
-});
-
 app.get("/", (req, res) => {
     res.redirect("/listings");
+});
+
+app.all("*",(req,res)=>{
+    throw new customError("Page not found",404);
 });
 
 app.use((err,req,res,next)=>{
