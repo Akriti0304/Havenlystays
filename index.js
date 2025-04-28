@@ -80,6 +80,11 @@ app.use(((req,res,next)=>{
     if(req.path=="/listings" || req.path=="/listings/"){
         res.locals.isListingPage = true;
     }
+    else if(req.path == "/"){
+        res.locals.isListingPage = true;
+        res.redirect("/listings");
+        next();
+    }
     else{res.locals.isListingPage = false}
     next();
 }));
