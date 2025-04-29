@@ -3,6 +3,7 @@ const Listing = require("../models/listing");
 const customError=require("../utils/customError.js");
 const Fuse = require("fuse.js");
 const filterData = require("../filterData/filterData.js");
+const Message = require("../models/message.js");
 
 module.exports.allListings = async (req,res)=>{
     const lists=await Listing.find({});
@@ -182,4 +183,60 @@ module.exports.destroyListing = async (req,res)=>{
 
 module.exports.renderCreateForm = async (req,res)=>{
     res.render("Listing/create.ejs");
+}
+
+module.exports.renderContactForm = async (req,res)=>{
+    //listing id
+    let {id} = req.params;
+    console.log(id);
+    res.render("Request/contactForm.ejs",{id});
+}
+
+module.exports.addRequest = async (req,res)=>{
+    let {name, email, phone, guests, message, date} = req.body;
+    //listing id
+    let {id} = req.params;
+
+    let listing = await Listing.findById(id);
+
+    ownerId = listing.owner;
+
+    if(!name || !email || !phone || !guests || !message || !date || !id || !ownerId){
+        throw new customError("Data is missing",404);
+    }
+
+    let msg = await new Message({
+        name,
+        email,
+        phone,
+        guests,
+        message,
+        date,
+        requestTo : ownerId
+    });
+
+    msg.save();
+
+    req.flash("success",`Request added successfully!`);
+
+    res.redirect(`/listings/${id}/show`);
+}
+
+module.exports.destroyRequest = async (req,res) =>{
+    //message id
+    let {id} = req.params;
+
+    const msg = await Message.findByIdAndDelete(id);
+
+    req.flash("success",`Request deleted successfully!`);
+
+    res.redirect("/listings/inbox");
+}
+
+module.exports.renderMessages = async (req,res)=>{
+    currUserID = res.locals.currUser._id;
+
+    const messages = await Message.find({ requestTo: currUserID });
+
+    res.render("Request/inbox.ejs",{messages});
 }

@@ -2,7 +2,7 @@ const express=require("express");
 const wrapAsync=require("../utils/wrapAsync.js");
 const router = express.Router({mergeParams:true});
 const {isloggedIn} = require("../utils/middleware.js");
-const {isAuthorizeUser} = require("../utils/middleware.js");
+const {isAuthorizeUser, isAuthorizeForMessage} = require("../utils/middleware.js");
 const ListingControllers = require("../controllers/listing.js");
 const multer = require("multer");
 const {storage} = require("../cloudStorageConfig/storage.js");
@@ -43,6 +43,22 @@ router.route("/:id")
 ))
 .delete(isloggedIn,isAuthorizeUser,wrapAsync(
     ListingControllers.destroyListing
+));
+
+router.route("/:id/request")
+.get(wrapAsync(
+    ListingControllers.renderContactForm
+))
+.post(wrapAsync(
+    ListingControllers.addRequest
+))
+.delete(isloggedIn,isAuthorizeForMessage,wrapAsync(
+    ListingControllers.destroyRequest
+));
+
+
+router.get("/inbox",isloggedIn, wrapAsync(
+    ListingControllers.renderMessages
 ));
 
 module.exports = router;

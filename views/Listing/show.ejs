@@ -1,9 +1,16 @@
 <%layout("/Layout/boilerplate")%>
 
         <div class="showCard">
-            <h2 id="cardTitle">
-                <%=list.title%>
-            </h2>
+            <div id="card-header">
+                <h2 id="cardTitle">
+                    <%=list.title%>
+                </h2>
+                <form method="get" action="/listings/<%=list.id%>/request">
+                    <button class="btn btn-outline-danger contact-btn">
+                        <i class="fa-solid fa-phone contact-btn-icon"></i>Contact us
+                    </button>
+                </form>
+            </div>
             <div class="card-img">
                 <img id="showImg" src="<%=list.image[0].url%>" alt="img">
                 <div id="grid-img">
@@ -28,7 +35,8 @@
                         <i id="listOwnerIcon" class="fa-solid fa-user"></i>
                         <p id="hostText">Owned by <i>
                                 <%=list.owner.username%>
-                            </i></p>
+                            </i>
+                        </p>
                     </div>
                 </div>
 

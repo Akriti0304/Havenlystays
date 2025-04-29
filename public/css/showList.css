@@ -3,6 +3,12 @@
     margin: 1rem auto;
 }
 
+#card-header{
+    display: flex;
+    /* gap: 1rem; */
+    justify-content: space-between;
+}
+
 #cardTitle {
     margin-left: 2px;
     margin-bottom: 1.2rem;
@@ -115,6 +121,18 @@
     width: 100%;
     border-radius: 1rem;
     font-size: 18px;
+}
+
+.contact-btn{
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    font-size: 18px;
+    display: flex;
+    gap: 10px;
+}
+
+.contact-btn-icon{
+    align-self: center;
 }
 
 #ownerDiv {
@@ -254,6 +272,11 @@
         width: 100%;
         border-radius: 1rem;
         font-size: 13px;
+    }
+
+    .contact-btn{
+        font-size: 13px ;
+        width: max-content;
     }
 
     .card-img {

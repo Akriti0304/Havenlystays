@@ -35,11 +35,14 @@
                   <i class="fa-solid fa-user"></i>
                   &nbsp;<%=currUser.username%>
                 </button>
+                <a  id="logoutAnch" class="nav-link" href="/listings/inbox">
+                  <i class="fa-solid fa-envelope"></i> Inbox
+                </a>
                 <%}%>
-                  <%if(!currUser){%>
-                    <a id="loginAnch" class="nav-link" aria-current="page" href="/login">Login</a>
-                    <a id="SignupAnch" class="nav-link" href="/register">Signup</a>
-                    <%}%>
+              <%if(!currUser){%>
+                  <a id="loginAnch" class="nav-link" aria-current="page" href="/login">Login</a>
+                  <a id="SignupAnch" class="nav-link" href="/register">Signup</a>
+              <%}%>
             </div>
       </div>
     </div>

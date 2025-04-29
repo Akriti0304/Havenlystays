@@ -1,0 +1,27 @@
+.accordion-button {
+    font-size: 1.1rem;
+    background-color: #f8f9fa;
+}
+
+.accordion-body p {
+    margin-bottom: 0.5rem;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.inbox-heading{
+    color: #dc3545;
+}
+
+.inbox-alert{
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .inbox-heading{
+        font-size: 1.3rem;
+    }
+}

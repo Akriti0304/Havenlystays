@@ -1,0 +1,60 @@
+<%layout("./Layout/boilerplate")%>
+
+        <div class="col-lg-12 contactMain">
+            <div class="contactHeadContainer">
+                <h2 id="contactHead" > 
+                    <i class="fa-solid fa-phone"></i>Contact Us
+                </h2>
+            </div>
+
+            <form action="/listings/<%=id%>/request" novalidate 
+            class="form needs-validation contactForm" method="POST">
+                <div class="row">
+                    <label class="form-label" for="name">Name :</label>
+                    <input class="form-control" id="name" type="text" placeholder="Enter your Name" name="name" required>
+                    <div class="invalid-feedback">Please enter your name</div>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="form-label" for="email">Email :</label>
+                    <input class="form-control" id="email" type="email" placeholder="Enter your Email" name="email" required>
+                    <div class="invalid-feedback">Please enter your email so we can contact you</div>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="form-label" for="phone">Phone number :</label>
+                    <input class="form-control" id="phone" type="number" min="1000000001" max="9999999999"
+                     placeholder="Enter your Phone number" name="phone" required>
+                    <div class="invalid-feedback">Please enter your phone number so we can contact you</div>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="form-label" for="message">Message :</label>
+                    <textarea class="form-control" id="message" name="message"
+                        placeholder="Enter Message to send listing owner"
+                        minlength="10" required></textarea>
+                    <div class="invalid-feedback">Please enter message more than 10 words</div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label" for="guests">Number Of Guests :</label>
+                        <input class="form-control" id="guests" min="1" type="number" name="guests"
+                            placeholder="Enter number of guests" required>
+                        <div class="invalid-feedback">Please enter the guests count</div>
+                    </div>
+                    <br>
+                    <div class="col">
+                        <label class="form-label" for="date">Booking date :</label>
+                        <input class="form-control" id="date" type="date" name="date" min="<%= new Date().toISOString().split('T')[0] %>"
+                            placeholder="Please select your preferred booking date" required>
+                        <div class="invalid-feedback">Please select a date and do not select post date</div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="submitBtnDiv">
+                    <button type="submit" id="submitBtn" class="btn btn-danger">Submit</button>
+                </div>
+            </form>
+        </div>

@@ -1,0 +1,35 @@
+.contactMain{
+    display: flex;
+    column-gap: 40dvw;
+    padding: 1rem 0px;
+}
+
+.contactForm{
+    width: 40dvw;
+}
+
+#contactHead{
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    font-size: 5rem;
+    color: #dc3545;
+    opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+    #contactHead{
+        top: 40%;
+        font-size: 4rem;
+    }
+
+    .contactMain{
+        column-gap: 0;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .contactForm{
+        width: 100%;
+    }
+}

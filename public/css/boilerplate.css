@@ -1,4 +1,5 @@
 #mainContainer{
     display: grid;
-    grid-template-rows: 1fr minmax(58vh, auto) 14vh ;
+    min-height: 100dvh;
+    grid-template-rows: max-content minmax(58vh, auto) 14vh ;
 }

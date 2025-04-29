@@ -1,5 +1,6 @@
 const Listing = require("../models/listing");
 const Review = require("../models/review");
+const Message = require("../models/message");
 // const customError = require("./customError");
 
 module.exports.isloggedIn = (req, res, next) => {
@@ -39,4 +40,14 @@ module.exports.isAuthorizeForReview = async (req, res, next) => {
         return next();
     }
     res.redirect("/listings");
+}
+
+module.exports.isAuthorizeForMessage = async (req, res, next) => {
+    let id = req.params.id;
+    let msg = await Message.findById(id);
+    res.locals.isAuthorizeUser = (msg.requestTo.equals(res.locals.currUser._id));
+    if(res.locals.isAuthorizeUser){
+        return next();
+    }
+    res.redirect("/listings/inbox");
 }
