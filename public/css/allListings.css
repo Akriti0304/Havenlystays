@@ -2,7 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
-    padding: 2rem 2.5rem;
+    padding: 2rem 4rem;
+    justify-content: space-between;
 }
 
 .cardAnch {
@@ -35,9 +36,9 @@
 
 @media (max-width: 713px) {
     #all-listings-container {
-        gap: 0px;
-        padding: 0px;
-        justify-content: space-evenly;
+        gap: 2rem;
+        padding: 2rem 3rem;
+        justify-content: space-between;
     }
 
     .card-img-top {
