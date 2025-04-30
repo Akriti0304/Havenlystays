@@ -1,8 +1,8 @@
 #all-listings-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 3rem;
-    padding: 2rem 4rem;
+    gap: 2rem;
+    padding: 2rem 3.5rem;
     justify-content: space-between;
 }
 
@@ -36,8 +36,8 @@
 
 @media (max-width: 713px) {
     #all-listings-container {
-        gap: 2rem;
-        padding: 2rem 3rem;
+        gap: 1.7rem;
+        padding: 1.7rem;
         justify-content: space-between;
     }
 

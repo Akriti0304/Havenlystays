@@ -11,6 +11,7 @@
     border: 1px solid rgb(238, 237, 237);
     background-color: rgb(238, 237, 237);
     border-radius: 2rem;
+    margin: 0px 0.6rem;
 }
 
 #createListingBtn {
@@ -21,9 +22,16 @@
 
 #logoutAnch,
 #loginAnch,
-#SignupAnch {
+#SignupAnch,
+#inboxAnch {
     font-weight: 600;
     margin: auto
+}
+
+#inboxAnch{
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
 }
 
 #createListingBtn:hover {
@@ -139,5 +147,9 @@
     #appTitle{
         font-size: 1.2rem;
         font-weight:900;
+    }
+
+    #userInfoBtn {
+        margin: 0px;
     }
 }
