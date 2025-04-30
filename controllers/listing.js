@@ -70,7 +70,7 @@ module.exports.createListing = async (req,res)=>{
     let images = [];
 
     for(let i=0;i<=(req.files.length)-1;i++){
-        console.log(i);
+        // console.log(i);
         images.push(
             {
                 url : req.files[i].path,
@@ -149,7 +149,7 @@ module.exports.editListing = async (req,res)=>{
     let images = [];
 
     for(let i=0;i<=(req.files.length)-1;i++){
-        console.log("1st i ", i);
+        // console.log("1st i ", i);
         images.push(
             {
                 url : req.files[i].path,
@@ -160,7 +160,7 @@ module.exports.editListing = async (req,res)=>{
 
     if(req.files.length<5){
         for(let i=req.files.length; i<5; i++){
-            console.log("2nd i ", i);
+            // console.log("2nd i ", i);
             images.push(list.image[i]);
         }
     }
@@ -188,7 +188,7 @@ module.exports.renderCreateForm = async (req,res)=>{
 module.exports.renderContactForm = async (req,res)=>{
     //listing id
     let {id} = req.params;
-    console.log(id);
+    // console.log(id);
     res.render("Request/contactForm.ejs",{id});
 }
 

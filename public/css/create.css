@@ -15,6 +15,7 @@
     font-size: 5rem;
     color: #dc3545;
     opacity: 0.2;
+    pointer-events: none;
 }
 
 .category-selected-btn{
