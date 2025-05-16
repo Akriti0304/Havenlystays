@@ -3,12 +3,12 @@
     flex-wrap: wrap;
     gap: 1.7rem;
     padding: 2rem 2rem;
-    justify-content:inherit;
+    /* justify-content:inherit; */
 }
 
 .cardAnch {
-    flex: 1 1 300px;
-    max-width: 300px;
+    /* flex: 1 1 300px; */
+    max-width: 350px;
     min-width: 100px;
     text-decoration: none;
 }
